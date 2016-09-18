@@ -20,6 +20,8 @@ RUN sed -i 's/^ServerSignature/#ServerSignature/g' /etc/apache2/conf-enabled/sec
     echo "ServerTokens Prod" >> /etc/apache2/conf-enabled/security.conf; \
     a2enmod ssl; \
     a2enmod headers; \
+    a2enmod proxy; \
+    a2enmod proxy_ajp; \
     echo "SSLProtocol ALL -SSLv2 -SSLv3" >> /etc/apache2/apache2.conf
 
 ADD 000-default.conf /etc/apache2/sites-enabled/000-default.conf
